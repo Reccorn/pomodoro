@@ -1,0 +1,55 @@
+@import '../../css/vars.global.scss';
+
+.outer {
+    position: relative;
+    min-width: 370px;
+
+    &.active {
+        .head {
+            svg {
+                transform: rotate(180deg);
+            }
+        }
+
+        .list {
+            opacity: 1;
+            transform: none;
+            pointer-events: all;
+        }
+    }
+
+    .head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 19px 15px;
+        background-color: $color_lightgray;
+        cursor: pointer;
+
+        svg {
+            transition: .2s;
+        }
+    }
+
+    .list {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 100%;
+        z-index: 99;
+        transition: .2s;
+        opacity: 0;
+        transform: translateY(10%);
+        pointer-events: none;
+        box-shadow: 0px 10px 63px 0px rgba(0, 0, 0, 0.07);
+
+        div {
+            width: 100%;
+            padding: 19px 15px;
+            background-color: $color_lightgray;
+            cursor: pointer;
+            border-top: 1px solid #DEDEDE;
+        }
+    }
+}

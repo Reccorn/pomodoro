@@ -1,0 +1,23 @@
+.content {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+
+    .item {
+        width: fit-content;
+        display: flex;
+        flex-direction: column;
+
+        &:first-child {
+            margin-right: 16px;
+        }
+
+        &:last-child {
+            position: fixed;
+            z-index: 1;
+            top: 170px;
+            right: 80px;
+            width: calc(100%/2 - 16px);
+        }
+    }
+}

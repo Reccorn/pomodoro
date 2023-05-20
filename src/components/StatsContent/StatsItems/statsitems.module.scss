@@ -1,0 +1,139 @@
+@import '../../../css/vars.global.scss';
+
+.wrapper {
+    width: 100%;
+
+    .top {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        height: 471px;
+        margin: -16px;
+
+        .item {
+            &:nth-child(1) {
+                flex-direction: column;
+                width: 296px;
+                flex-basis: calc(53% - 16px);
+
+                .itemTitle {
+                    margin-bottom: 14px;
+                }
+
+                p {
+                    span {
+                        span {
+                            font-weight: 700;
+                            color: $color_red;
+                        }
+                    }
+                }
+            }
+
+            &:nth-child(2) {
+                flex-direction: column;
+                width: 296px;
+                flex-basis: calc(40% - 16px);
+
+                img {
+                    position: absolute;
+                    inset: 0;
+                    margin: auto;
+                    width: 108px;
+                    height: 102px;
+                }
+            }
+
+            &:nth-child(3) {
+                width: calc(100% - 360px);
+                flex-basis: 100%;
+                padding: 0;
+            }
+        }
+    }
+
+    .bottom {
+        display: flex;
+        justify-content: space-between;
+        margin: 32px -16px -16px -16px;
+
+        .item {
+            flex-basis: calc(33% - 16px);
+            margin-top: 0;
+            filter: grayscale(1);
+
+            &.itemActive {
+                filter: none;
+
+                &:nth-child(1) {
+                    background-color: #FFDDA9;
+                }
+
+                &:nth-child(2) {
+                    background-color: #DFDCFE;
+                }
+
+                &:nth-child(3) {
+                    background-color: #C5F1FF;
+                }
+            }
+
+            span {
+                margin-left: auto;
+            }
+        }
+    }
+
+    .item {
+        position: relative;
+        display: flex;
+        margin: 16px;
+        padding: 25px;
+        background-color: $color_lightgray;
+
+        .itemTitle {
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 33px;
+        }
+
+        .value {
+            position: absolute;
+            bottom: 25px;
+            left: 25px;
+            font-size: 64px;
+            line-height: 76px;
+        }
+    }
+
+    .tomatoCounter {
+        display: flex;
+        align-items: center;
+        margin: 0 auto;
+        font-weight: 700;
+        font-size: 24px;
+        left: 33px;
+        color: $color_text_gray;
+
+        svg {
+            width: 81px;
+            height: 81px;
+            margin-right: 15px;
+        }
+    }
+
+    .tomatoValue {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        padding: 9px;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 33px;
+        color: $color_white;
+        text-align: center;
+        background-color: $color_red;
+    }
+}

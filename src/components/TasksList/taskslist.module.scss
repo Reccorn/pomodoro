@@ -1,0 +1,14 @@
+@import '../../css/vars.global.scss';
+
+.items {
+    display: flex;
+    flex-direction: column;
+    max-width: 370px;
+    margin-top: 25px;
+    margin-bottom: 19px;
+}
+
+.totalTime {
+    font-weight: 300;
+    color: $color_text_gray;
+}

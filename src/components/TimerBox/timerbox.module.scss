@@ -1,0 +1,110 @@
+@import '../../css/vars.global.scss';
+
+.wrapper {
+    width: 100%;
+    max-width: 733px;   
+
+    .inner {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 19px 40px;
+    color: $color_white;
+    background-color: $color_darkgray;
+
+    &.running {
+        background-color: $color_red;
+    }
+
+    &.paused {
+        background-color: $color_green;
+    }
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 452px;
+    background-color: $color_lightgray;
+    text-align: center;
+
+    .time {
+        position: relative;
+        font-weight: 200;
+        font-size: 150px;
+        line-height: 179px;
+        width: 370px;
+        max-width: 370px;
+        min-width: 370px;
+        white-space: nowrap;
+
+        .addBtn {
+            position: absolute;
+            right: -75px;
+            top: 40%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            padding: 16px;
+            font-size: 27px;
+            line-height: 27px;
+            color: $color_white;
+            border-radius: 50%;
+            background-color: $color_darkgray;
+            transition: .2s;
+    
+            span {
+                transform: translateY(-1px);
+                pointer-events: none;
+            }
+    
+            &:hover {
+                background-color: $color_green;
+            }
+        }
+    }
+
+    .info {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 17px;
+        margin-bottom: 32px;
+        color: $color_black;
+
+        span {
+            color: $color_text_gray;
+        }
+    }
+
+    .actions {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+
+        button {
+            &:nth-child(1) {
+                margin-right: 25px;
+            }
+        }
+    }
+
+    .placeholder {
+        img {
+            width: 215px;
+            height: 215px;
+        }
+    }
+}

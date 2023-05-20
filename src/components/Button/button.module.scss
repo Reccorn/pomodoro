@@ -1,0 +1,44 @@
+@import '../../css/vars.global.scss';
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 145px;
+    width: fit-content;
+    padding: 18px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 17px;
+    text-align: center;
+    border: 2px solid transparent;
+
+    &.green {
+        color: $color_white;
+        background-color: $color_green;
+        border-color: $color_green;
+
+        &:hover {
+            background-color: darken($color_green, 9);
+            border-color: darken($color_green, 9);
+        }
+    }
+
+    &.red {
+        color: $color_red;
+        background-color: transparent;
+        border-color: $color_red;
+
+        &:hover {
+            color: $color_white;
+            background-color: $color_red;
+        }
+    }
+
+    &.disabled {
+        pointer-events: none;
+        color: $color_darkgray;
+        background-color: transparent;
+        border-color: $color_darkgray;
+    }
+}

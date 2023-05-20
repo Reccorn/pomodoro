@@ -1,0 +1,23 @@
+@import '../../css/vars.global.scss';
+
+.list {
+    max-width: 508px;
+    list-style-type: disc;
+    color: $color_black;
+    padding-left: 18px;
+    margin-bottom: 25px;
+
+    li {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 33px;
+
+        &::marker {
+            color: #B7280F;
+        }
+    }
+}
+
+input {
+    margin-bottom: 25px;
+}

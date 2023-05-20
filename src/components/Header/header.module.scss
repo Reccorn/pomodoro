@@ -1,0 +1,47 @@
+@import '../../css/vars.global.scss';
+
+.wrapper {
+    padding: 15px 0;
+    background-color: $color_white;
+    box-shadow: 0px 10px 63px 0px rgba(0, 0, 0, 0.07);
+
+    .content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        color: $color_red;
+
+        svg {
+            margin-right: 13px;
+        }
+    }
+
+    .toStats {
+        display: flex;
+        align-items: center;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 17px;
+        color: $color_red;
+
+        &:hover {
+            color: rgba(183, 40, 15, 1);
+
+            svg {
+                path {
+                    fill: rgba(183, 40, 15, 1);
+                }
+            }
+        }
+
+        span {
+            display: inline-flex;
+            margin-right: 5px;
+        }
+    }
+}

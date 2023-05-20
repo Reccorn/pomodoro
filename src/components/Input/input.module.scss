@@ -1,0 +1,18 @@
+@import '../../css/vars.global.scss';
+
+.item {
+    font-family: 'SF UI Display', 'Helvetiva', sans-serif;
+    width: 370px;
+    padding: 19px 15px;
+    border: 0;
+    outline: none;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 17px;
+    background-color: $color_lightgray;
+    color: $color_black;
+
+    &::placeholder {
+        color: $color_text_gray;
+    }
+}
