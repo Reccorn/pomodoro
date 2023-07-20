@@ -23,7 +23,7 @@
         background-color: $color_red;
     }
 
-    &.paused {
+    &.break {
         background-color: $color_green;
     }
 }
@@ -47,6 +47,14 @@
         max-width: 370px;
         min-width: 370px;
         white-space: nowrap;
+
+        &.running {
+            color: $color_red;
+        }
+
+        &.break {
+            color: $color_green;
+        }
 
         .addBtn {
             position: absolute;

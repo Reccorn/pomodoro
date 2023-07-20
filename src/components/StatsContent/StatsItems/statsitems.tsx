@@ -50,7 +50,6 @@ export function StatsItems({ filter }: IStatsItemsProps) {
 
     useEffect(() => {
         function getChartData() {
-            let time = 0;
             const dayOfWeek = activeDate.getDay();
             let daysToSunday = 0 - dayOfWeek; 
             if (dayOfWeek === 0) { 
@@ -60,6 +59,7 @@ export function StatsItems({ filter }: IStatsItemsProps) {
             }
             const sundayThisWeek = new Date(activeDate.getTime() + daysToSunday * 24 * 60 * 60 * 1000); 
             const weekData = new Array(7).fill('').map((_day, index) => { 
+                let time = 0;
                 const date = new Date(sundayThisWeek.getTime()); 
                 date.setDate(date.getDate() + index); 
                 const dayOfWeek = days[index]; 

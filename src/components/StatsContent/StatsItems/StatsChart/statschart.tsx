@@ -25,22 +25,31 @@ export function StatsChart({ data, onClick }: IChartProps) {
         });
     }, [data]);
 
-    function formatYAxis(value: unknown, index: number) {
+    function formatYAxis(value: number) {
         if (value !== undefined) {
-            if (index === 0) {
-                return ''
-            } else if (index === 1) {
-                return '25 мин';
-            } else if (index === 2) {
-                return '50 мин';
-            } else if (index === 3) {
-                return '1 ч 15 мин';
-            } else if (index === 4) {
-                return '1 ч 40 мин';
+            const hours = Math.floor(value / 3600);
+            const minutes = Math.floor((value % 3600) / 60);
+            const seconds = Math.floor(value % 60);
+
+
+            if (hours === 0) {
+                if (minutes === 0) {
+                    return seconds + ' с';
+                } else {
+                    if (seconds === 0) {
+                        return minutes + ' м';
+                    } else {
+                        return minutes + ' м ' + seconds + ' с';
+                    }
+                }
             } else {
-                return '';
+                if (minutes === 0) {
+                    return hours + ' ч';
+                } else {
+                    return hours + ' ч ' + minutes + ' м';
+                }
             }
-        }  else {
+        } else {
             return '';
         }
     }
@@ -52,20 +61,20 @@ export function StatsChart({ data, onClick }: IChartProps) {
 
     return (
         <ResponsiveContainer>
-            <BarChart data={data} margin={{ top: 45, right: 22, bottom: 11 }} 
-            onMouseMove={state => {
-                if (state.isTooltipActive) {
-                    if (state.activeTooltipIndex !== undefined) {
-                        setFocusBar(state.activeTooltipIndex);
+            <BarChart data={data} margin={{ top: 45, right: 22, bottom: 11 }}
+                onMouseMove={state => {
+                    if (state.isTooltipActive) {
+                        if (state.activeTooltipIndex !== undefined) {
+                            setFocusBar(state.activeTooltipIndex);
+                        }
+                    } else {
+                        setFocusBar(99);
                     }
-                } else {
-                    setFocusBar(99);
-                }
-            }}>
+                }}>
                 <CartesianGrid vertical={false} />
-                <YAxis orientation="right" domain={[0, 6000]} axisLine={false} tickLine={false} tick={{ fill: "#333333", fontSize: 12 }} tickFormatter={formatYAxis} />
+                <YAxis dataKey={'time'} orientation="right" domain={['dataMin', 'dataMax']} axisLine={false} tickLine={false} tick={{ fill: "#333333", fontSize: 12 }} tickFormatter={formatYAxis} />
                 <XAxis dataKey={'dayOfWeek'} axisLine={false} tickLine={false} padding={{ left: 56, right: 165 }} tick={{ fill: "#999999", fontSize: 24 }} />
-                <Tooltip cursor={{fill: 'transparent'}} />
+                <Tooltip cursor={{ fill: 'transparent' }} />
                 <Bar dataKey={'time'} maxBarSize={77}>
                     {data.map((_entry, index) => (
                         <Cell cursor="pointer" key={`cell-${index}`} fill={focusBar === index && activeBar !== index ? '#EE735D' : activeBar === index ? '#DC3E22' : '#EA8979'} onClick={() => changeActiveBar(index)} />
